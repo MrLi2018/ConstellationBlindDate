@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  <style>
+    .classAll {
+      color: #f71f9f;
+    }
+  </style>
+</head>
+<body>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+<div class="vue-demo">
+  <h1>My name is:{{name}}}</h1>
+  <h2>My sex is:{{sex}}}</h2>
+  <h3>My age is:{{age}}}</h3>
+  <h4>
+    <button @click="dj">有惊喜</button>
+  </h4>
+  <h5>{{dream()}}</h5>
+  <div class="vue-demo" v-html="table">
+    <button @click="changecolor">点击我改变table的颜色</button>
+  </div>
+  <div class="vue-demo">
+    <h6>{{message}}</h6>
+    <input v-model="message">
+  </div>
+</div>
+</body>
+<script>
+  var temp = new Vue({
+    el: '.vue-demo',
+    data: {
+      name: "栗旭辰",
+      sex: "男",
+      age: 25,
+      table: "<table><tr><td><font color='#b316f7' v-bind:class='classAll'>仙之巅，傲世间，有我安澜便有天！</font></td></tr></table>",
+      class1: false,
+      message: "hello world"
+    },
+    methods: {
+      dj: function () {
+        alert("哈哈哈哈")
+      }
+      ,
+      dream: function () {
+        return "有梦想才有远方"
+      },
+      changecolor: function () {
+
+      }
+    }
+  })
+</script>
+</html>

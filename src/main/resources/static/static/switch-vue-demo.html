@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @import url("//unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css");
+  </style>
+</head>
+<body>
+<div id="app">
+  <template>
+    <el-select v-model="value" placeholder="请选择" clearable>
+      <el-option
+        v-for="item in os"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        :disabled="item.disabled">
+      </el-option>
+    </el-select>
+    <el-select multiple v-model="list"   collapse-tags>
+      <el-option
+        v-for="item in ms"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        :disabled="item.disabled">
+      </el-option>
+    </el-select>
+  </template>
+</div>
+</body>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+<script>
+  var Main = {
+    data() {
+      return {
+        os: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面',
+          disabled: true
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: '北京烤鸭',
+        ms: [{
+          value: "石昊",
+          label: "荒天帝"
+        }, {value: "叶凡", lable: "叶天帝"}, {value: "段德", label: "无量天尊"}, {value: "无始", lable: "无始大帝"}, {
+          value: "吞天魔罐",
+          label: "狠人大帝"
+        }, {value: "小月亮", label: "姬紫月"}],
+        list: []
+      }
+    }
+  };
+  // var catol = Vue.extend(Main);
+  // new catol().$mount("#app")
+  new (Vue.extend(Main))().$mount("#app")
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @import url("//unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css");
+
+    .el-input {
+      width: 50%;
+      margin: 0.8%;
+    }
+    .el-container {
+      width: 60%;
+      margin-left: 20%;
+    }
+
+    .el-header {
+      background-color: #fcd1c7;
+      width: 60%;
+      margin-left: 20%;
+      text-align: center;
+      padding-top: 20px;
+
+    }
+
+    .el-main {
+      background-color: #fcf2d2;
+      width: 100%;
+    }
+
+    .password {
+      margin-left: 4.7%;
+      width: 50%;
+      margin-bottom: 5%;
+    }
+
+    .button {
+      text-align: center;
+    }
+
+    .input {
+      margin-left: 20%;
+    }
+  </style>
+</head>
+<body>
+<div id="app" style="margin-top: 15%;background-color: #fcb59c">
+    <el-container>
+      <el-header>注册</el-header>
+      <el-container>
+        <el-main>
+          <div>
+            <div class="input">
+              用户名：
+              <el-input size="mini"></el-input>
+            </div>
+            <div class="input">
+              密码：
+              <el-input size="mini" class="password"></el-input>
+            </div>
+            <div class="button">
+              <el-button type="success" round>注册</el-button>
+              <el-button type="info" round>取消</el-button>
+            </div>
+          </div>
+        </el-main>
+      </el-container>
+    </el-container>
+</div>
+</body>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+<script>
+  new Vue({
+    el: "#app"
+  })
+</script>
+</html>

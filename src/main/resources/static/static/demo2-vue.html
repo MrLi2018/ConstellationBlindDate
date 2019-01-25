@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="watch">
+  <p><font size="20px">{{count}}</font></p>
+  <button @click="count++">点我可以加1</button>
+</div>
+
+</body>
+<script>
+  var temp = new Vue({
+    el:"#watch",
+    data: {
+      count: 1
+    }
+  });
+  temp.$watch("count", function (nval, oval) {
+    alert("点击结果为：count的值从" + oval + "变为：" + nval)
+  })
+</script>
+</html>

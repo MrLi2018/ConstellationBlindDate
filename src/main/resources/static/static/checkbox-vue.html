@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @import url("//unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css");
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--  <el-container>
+      <el-footer>
+        <el-checkbox-group v-model="checklist">
+          <el-checkbox label="上海"></el-checkbox>
+          <el-checkbox label="广州"></el-checkbox>
+          <el-checkbox label="天津"></el-checkbox>
+          <el-checkbox label="深圳" disabled="true"></el-checkbox>
+          <el-checkbox label="太原" disabled="true"></el-checkbox>
+        </el-checkbox-group>
+      </el-footer>
+    </el-container>-->
+  <template>
+    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+    <div style="margin: 15px 0;"></div>
+    <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+      <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+    </el-checkbox-group>
+  </template>
+  <el-input v-model="input" clearable placeholder="请输入查询内容"></el-input>
+</div>
+</body>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+<script>
+  /* new Vue({
+     el:"#app",
+     data:{
+       checklist:['广州', '深圳']
+     }
+   })*/
+  const cityOptions = ['上海', '北京', '广州', '深圳'];
+  var Main = {
+    data() {
+      return {
+        checkAll: false,
+        checkedCities: ['上海', '北京'],
+        cities: cityOptions,
+        isIndeterminate: true,
+        input: ''
+      };
+    },
+    methods: {
+      handleCheckAllChange(val) {
+        //val表示是否被选中
+        this.checkedCities = val ? cityOptions : []
+        this.isIndeterminate = false;
+      },
+      handleCheckedCitiesChange(value) {
+        //value表示被选中的元素的值
+        console.log(value);
+        //let比var在语法上更加规范，let修饰的变量只在当前代码块内有效
+        let checkedCount = value.length;
+        this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+        this.checkAll = checkedCount === this.cities.length;
+      }
+    }
+  }
+
+  /*  var Main = {
+      data() {
+        return {
+          checklist: ['广州', '深圳']
+        }
+
+      }
+    };*/
+  var check = Vue.extend(Main);
+  new check().$mount("#app")
+</script>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="//unpkg.com/vue/dist/vue.js"></script>
+  <script src="//unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+  <style>
+    @import url("//unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css");
+
+    .transition-box {
+      margin-bottom: 10px;
+      width: 200px;
+      height: 100px;
+      border-radius: 4px;
+      background-color: #409EFF;
+      text-align: center;
+      color: #fff;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      margin-right: 20px;
+    }
+
+    .el-row {
+      margin-bottom: 20px;
+
+    }
+
+    .el-col {
+      border-radius: 4px;
+    }
+
+    .bg-purple-dark {
+      background: #99a9bf;
+    }
+
+    .bg-purple {
+      background: #d3dce6;
+    }
+
+    .bg-purple-light {
+      background: #e5e9f2;
+    }
+
+    .grid-content {
+      border-radius: 4px;
+      min-height: 36px;
+    }
+
+    .row-bg {
+      padding: 10px 0;
+      background-color: #f9fafc;
+    }
+
+    div {
+      margin-top: 20px;
+    }
+     .el-header, .el-footer {
+       background-color: #B3C0D1;
+       color: #333;
+       text-align: center;
+       line-height: 60px;
+     }
+
+    .el-aside {
+      background-color: #D3DCE6;
+      color: #333;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    .el-main {
+      background-color: #E9EEF3;
+      color: #333;
+      text-align: center;
+      line-height: 160px;
+    }
+
+    body > .el-container {
+      margin-bottom: 40px;
+    }
+
+    .el-container:nth-child(5) .el-aside,
+    .el-container:nth-child(6) .el-aside {
+      line-height: 260px;
+    }
+
+    .el-container:nth-child(7) .el-aside {
+      line-height: 320px;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <template>
+    <div>
+      <el-button @click="show = !show">Click Me</el-button>
+
+      <div style="display: flex; margin-top: 20px; height: 100px;">
+        <transition name="el-fade-in-linear">
+          <div v-show="show" class="transition-box">.el-fade-in-linear</div>
+        </transition>
+        <transition name="el-fade-in">
+          <div v-show="show" class="transition-box">.el-fade-in</div>
+        </transition>
+      </div>
+    </div>
+    <div>
+      <el-button @click="show2 = !show2">Click Me</el-button>
+
+      <div style="display: flex; margin-top: 20px; height: 100px;">
+        <transition name="el-zoom-in-center">
+          <div v-show="show2" class="transition-box">.el-zoom-in-center</div>
+        </transition>
+
+        <transition name="el-zoom-in-top">
+          <div v-show="show2" class="transition-box">.el-zoom-in-top</div>
+        </transition>
+
+        <transition name="el-zoom-in-bottom">
+          <div v-show="show2" class="transition-box">.el-zoom-in-bottom</div>
+        </transition>
+      </div>
+    </div>
+    <div>
+      <el-button @click="show3 = !show3">Click Me</el-button>
+
+      <div style="margin-top: 20px; height: 200px;">
+        <el-collapse-transition>
+          <div v-show="show3">
+            <div class="transition-box">el-collapse-transition</div>
+            <div class="transition-box">el-collapse-transition</div>
+          </div>
+        </el-collapse-transition>
+      </div>
+    </div>
+
+  </template>
+  <div>
+    <el-row v-bind:gutter="10">
+      <el-col :span="24">
+        <div class="grid-content bg-purple-dark"></div>
+      </el-col>
+    </el-row>
+    <el-row v-bind:gutter="20">
+      <el-col :span="12">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="12">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+    </el-row>
+    <el-row v-bind:gutter="30">
+      <el-col :span="8">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+    <el-row v-bind:gutter="40">
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+    </el-row>
+    <el-row v-bind:gutter="50">
+      <el-col :span="4">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="4">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="4">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="4">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="4">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="4">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+    </el-row>
+    <el-row v-bind:gutter="60">
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col v-bind:span="2">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+  </div>
+  <div>
+    <el-row type="flex" class="row-bg">
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="center">
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="end">
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="space-between">
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="space-around">
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+    </el-row>
+  </div>
+  <div>
+    <el-row :gutter="10">
+      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+    </el-row>
+  </div>
+</div>
+
+</body>
+<script>
+  var Main = {
+    data: () => ({
+      show2: true,
+      show: true,
+      show3: true
+    })
+  }
+  var Ctor = Vue.extend(Main)
+  new Ctor().$mount('#app')
+</script>
+</html>

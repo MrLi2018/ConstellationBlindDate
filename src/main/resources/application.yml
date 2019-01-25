@@ -1,0 +1,16 @@
+server:
+  port: 8091
+spring:
+  datasource:
+    #基础信息配置
+    name: testVue
+    url: jdbc:mysql://localhost:3306/spd?characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: admin
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    mainRun:
+      dao: debug
